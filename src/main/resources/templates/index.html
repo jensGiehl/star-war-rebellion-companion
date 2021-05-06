@@ -1,6 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 	<head>
-		<title>WebJars Demo</title>
+		<title th:text="#{title}">Star Wars Rebellion</title>
+		<meta charset="UTF-8" />
 		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 			<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 			<script src="/webjars/jquery/jquery.min.js"></script>
@@ -11,9 +14,17 @@
 	<body>
 		<div class="container">
 			<br />
-			<div class="alert alert-success">
-				<strong>Success!</strong>
-				It is working as we expected.
+			
+			<div id="connect">
+				<form class="row g-3">
+				  <div class="col-auto">
+				    <label for="gameId" th:text="#{gameId}" class="visually-hidden">GameID</label>
+				    <input type="text" class="form-control" id="gameId" th:placeholder="#{gameId}">
+				  </div>
+				  <div class="col-auto">
+				    <button type="submit" class="btn btn-primary mb-3" th:text="#{joinGame}" id="joinGame">Join</button>
+				  </div>
+				</form>
 			</div>
 
 			<button id="drawCard" type="button" class="btn btn-success">Draw a card</button>
