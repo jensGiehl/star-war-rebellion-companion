@@ -6,6 +6,7 @@
 			<script src="/webjars/jquery/jquery.min.js"></script>
 			<script src="/webjars/sockjs-client/sockjs.min.js"></script>
 			<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+			<script src="/app.js"></script>
 	</head>
 	<body>
 		<div class="container">
@@ -14,6 +15,23 @@
 				<strong>Success!</strong>
 				It is working as we expected.
 			</div>
+
+			<button id="drawCard" type="button" class="btn btn-success">Draw a card</button>
+
+			<div class="row">
+				<div class="col-md-12">
+					<table id="conversation" class="table table-striped">
+						<thead>
+							<tr>
+								<th>Drawn planets</th>
+							</tr>
+						</thead>
+						<tbody id="planets">
+						</tbody>
+					</table>
+				</div>
+			</div>
+
 		</div>
 	</body>
 </html>
