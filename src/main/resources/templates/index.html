@@ -27,14 +27,15 @@
 				</form>
 			</div>
 
-			<button id="drawCard" type="button" class="btn btn-success">Draw a card</button>
+			<button id="drawCard" type="button" class="btn btn-success" th:text="#{draw}">Draw a card</button>
 
 			<div class="row">
 				<div class="col-md-12">
 					<table id="conversation" class="table table-striped">
 						<thead>
 							<tr>
-								<th>Drawn planets</th>
+								<th th:text="#{planetName}">Name of the planet</th>
+								<th th:text="#{actions}">Actions</th>
 							</tr>
 						</thead>
 						<tbody id="planets">

@@ -18,16 +18,18 @@ function sendCommand() {
 }
 
 function showDrawnCard(planetName) {
-    $("#planets").append("<tr><td>" + planetName + "</td></tr>");
+    $("#planets").append("<tr><td>" + planetName + "</td><td>ACTIONS</td></tr>");
 }
 
 function connectToServer() {
 	gameId = $("#gameId").val();
+	// TODO: Check that gameId is not empty
 	gameToken = Math.random().toString(16).substr(2, 8);
 	
 	console.log("Connecting to game " + gameId);
 	console.log("Using Token " + gameToken);
 	connect();
+	$("#connect").hide();
 }
 
 $(function () {
