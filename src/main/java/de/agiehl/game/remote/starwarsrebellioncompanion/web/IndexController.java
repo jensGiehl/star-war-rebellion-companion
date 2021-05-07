@@ -31,4 +31,22 @@ public class IndexController {
 		return gameState.drawPlanetCard(gameId);
 	}
 
+	@MessageMapping("/{gameId}/{token}/top")
+	public void placeCardOnTheTopOfTheDrawPile(@DestinationVariable("gameId") String gameId,
+			@DestinationVariable("token") String token, String planetName) throws Exception {
+		log.info("Place card on top {} (GameId: {})", planetName, gameId);
+	}
+
+	@MessageMapping("/{gameId}/{token}/bottom")
+	public void placeCardAtTheBottomOfTheDrawPile(@DestinationVariable("gameId") String gameId,
+			@DestinationVariable("token") String token, String planetName) throws Exception {
+		log.info("Place card at the bottom {} (GameId: {})", planetName, gameId);
+	}
+
+	@MessageMapping("/{gameId}/{token}/shuffle")
+	public void shuffleCardBackToDrawPile(@DestinationVariable("gameId") String gameId,
+			@DestinationVariable("token") String token, String planetName) throws Exception {
+		log.info("Shuffle card {} back to draw pile (GameId: {})", planetName, gameId);
+	}
+
 }

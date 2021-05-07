@@ -5,6 +5,7 @@
 		<title th:text="#{title}">Star Wars Rebellion</title>
 		<meta charset="UTF-8" />
 		<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/webjars/font-awesome/css/all.css" rel="stylesheet">
 			<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 			<script src="/webjars/jquery/jquery.min.js"></script>
 			<script src="/webjars/sockjs-client/sockjs.min.js"></script>
@@ -27,23 +28,46 @@
 				</form>
 			</div>
 
-			<button id="drawCard" type="button" class="btn btn-success" th:text="#{draw}">Draw a card</button>
-
-			<div class="row">
-				<div class="col-md-12">
-					<table id="conversation" class="table table-striped">
-						<thead>
-							<tr>
-								<th th:text="#{planetName}">Name of the planet</th>
-								<th th:text="#{actions}">Actions</th>
-							</tr>
-						</thead>
-						<tbody id="planets">
-						</tbody>
-					</table>
+			<div id="game" style="display:none">
+				<button id="drawCard" type="button" class="btn btn-success" th:text="#{draw}">Draw a card</button>
+	
+				<div class="row">
+					<div class="col-md-12">
+						<table id="conversation" class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th th:text="#{planetName}">Name of the planet</th>
+									<th th:text="#{actions}">Actions</th>
+								</tr>
+							</thead>
+							<tbody id="planets">
+							</tbody>
+						</table>
+						<template id="template">
+						  <tr>
+						    <td data-template="planetName" class="col-8 text-uppercase fs-2 fw-bold"></td>
+						    <td data-template="actions" class="col-4">
+						    	<button type="submit" class="btn btn-primary place-on-top" th:title="#{onTop}">
+						    		<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+									    <path fill="currentColor" d="M8,11H11V21H13V11H16L12,7L8,11M4,3V5H20V3H4Z" />
+									</svg>
+						    	</button>
+						    	<button type="submit" class="btn btn-warning place-at-bottom" th:title="#{toBottom}">
+						    		<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+									    <path fill="currentColor" d="M16,13H13V3H11V13H8L12,17L16,13M4,19V21H20V19H4Z" />
+									</svg>
+						    	</button>
+						    	<button type="submit" class="btn btn-danger shuffle" th:title="#{shuffle}">
+						    		<svg style="width:24px;height:24px" viewBox="0 0 24 24">
+									    <path fill="currentColor" d="M17,3L22.25,7.5L17,12L22.25,16.5L17,21V18H14.26L11.44,15.18L13.56,13.06L15.5,15H17V12L17,9H15.5L6.5,18H2V15H5.26L14.26,6H17V3M2,6H6.5L9.32,8.82L7.2,10.94L5.26,9H2V6Z" />
+									</svg>
+						    	</button>
+						    </td>
+						  </tr>
+						</template>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</body>
 </html>
