@@ -20,7 +20,7 @@
 				<form class="row g-3">
 				  <div class="col-auto">
 				    <label for="gameId" th:text="#{gameId}" class="visually-hidden">GameID</label>
-				    <input type="text" class="form-control" id="gameId" th:placeholder="#{gameId}">
+				    <input type="text" class="form-control" id="gameId" th:placeholder="#{gameId}" required>
 				  </div>
 				  <div class="col-auto">
 				    <button type="submit" class="btn btn-primary mb-3" th:text="#{joinGame}" id="joinGame">Join</button>
