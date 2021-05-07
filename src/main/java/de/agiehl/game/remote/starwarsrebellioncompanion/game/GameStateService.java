@@ -13,7 +13,21 @@ public class GameStateService {
 
 	public Planet drawPlanetCard(String id) {
 		return persistens.getGameState(id).drawCard();
+	}
 
+	public void placeAtTop(String id, String card) {
+		// TODO: Never trust the client, he could inject a new planet
+		persistens.getGameState(id).placeAtTop(new Planet(card));
+	}
+
+	public void placeAtBottom(String id, String card) {
+		// TODO: Never trust the client, he could inject a new planet
+		persistens.getGameState(id).placeAtBottom(new Planet(card));
+	}
+
+	public void shuffleCardIntoPile(String id, String card) {
+		// TODO: Never trust the client, he could inject a new planet
+		persistens.getGameState(id).shuffle(new Planet(card));
 	}
 
 }
