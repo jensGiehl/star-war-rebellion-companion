@@ -29,7 +29,17 @@
 			</div>
 
 			<div id="game" style="display:none">
-				<button id="drawCard" type="button" class="btn btn-success" th:text="#{draw}">Draw a card</button>
+				<div class="row">
+					<div class="col">
+						<button id="drawCard" type="button" class="btn btn-success" th:text="#{draw}">Draw a card</button>
+					</div>
+					<div class="col">
+						<select class="form-control" id="rebellionplanet">
+						    <option th:each="planet : ${planets}" th:value="${planet}" th:text="${planet}"></option>
+						</select>
+						<button id="placerebellion" type="button" class="btn btn-success" th:text="#{place}">Rebellion planet</button>
+					</div>
+				</div>				
 	
 				<div class="row">
 					<div class="col-md-12">

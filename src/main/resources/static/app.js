@@ -53,6 +53,12 @@ function cardShuffle(planetName) {
     stompClient.send('/socket/' +  gameId + '/' + gameToken + '/shuffle' , {}, planetName);
 }
 
+function placeRebellionBase() {
+	var planetName = $('#rebellionplanet').val();
+	
+	stompClient.send('/socket/' +  gameId + '/' + gameToken + '/rebellion' , {}, planetName);
+}
+
 $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
@@ -72,6 +78,8 @@ $(function () {
             $('#gameId').submit();
         }
     });
+    
+    $('#placerebellion').click(function() { placeRebellionBase(); });
     
     $("body").on("click",".place-on-top",function(ev){
     	name = $(this).attr('data');

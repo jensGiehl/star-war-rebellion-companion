@@ -5,6 +5,7 @@ import static java.util.stream.Collectors.toList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
+import java.util.stream.Collectors;
 
 import de.agiehl.game.remote.starwarsrebellioncompanion.planet.Planet;
 import lombok.AccessLevel;
@@ -40,6 +41,14 @@ public class GameState {
 		planetList.add(planet);
 
 		Collections.shuffle(planetList);
+
+		availablePlantes = new Stack<Planet>();
+		availablePlantes.addAll(planetList);
+	}
+
+	public void remove(Planet planet) {
+		List<Planet> planetList = availablePlantes.stream().filter(p -> !p.getName().equals(planet.getName()))
+				.collect(Collectors.toList());
 
 		availablePlantes = new Stack<Planet>();
 		availablePlantes.addAll(planetList);

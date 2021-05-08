@@ -30,4 +30,9 @@ public class GameStateService {
 		persistens.getGameState(id).shuffle(new Planet(card));
 	}
 
+	public void remove(String gameId, String planetName) {
+		// TODO: Never trust the client, he could inject a new planet
+		persistens.getGameState(gameId).remove(new Planet(planetName));
+	}
+
 }
